@@ -1,10 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PropsType{
-    NORMAL, OBSTACLE, ITEM
-}
-
 public enum EffectType{
     SCOREUP, SCOREDOWN, HEARTUP, HEARTDOWN, INTERFERE  
 }
@@ -12,9 +8,8 @@ public enum EffectType{
 [CreateAssetMenu(menuName = "Property/Props")]
 public class PropData : ScriptableObject
 {
-    public PropsType type;
     public float moveSpeed;
-    public int score;
-    public PropsController model;
+    public int amount;
+    public GameObject prefab;
     public List<EffectType> effects;
 }

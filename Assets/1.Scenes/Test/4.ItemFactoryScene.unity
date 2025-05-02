@@ -468,6 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2085245897}
   - component: {fileID: 2085245898}
+  - component: {fileID: 2085245899}
   m_Layer: 0
   m_Name: PropertySpawner
   m_TagString: Untagged
@@ -502,10 +503,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e63815aed1e8e845b06fcbd02294948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propsPrefabs:
-  - {fileID: 2231369902755307392, guid: dd1af666c58d3784cb130675f6a27856, type: 3}
-  - {fileID: 8271754093097555121, guid: 8065db3276118304791d5e5e92e50b3a, type: 3}
-  - {fileID: 2906078608516591512, guid: 75c58b6eaef198b4b8f4ba7a0440d5b9, type: 3}
+  propsDatas:
+  - {fileID: 11400000, guid: a6a92f56b83e67a4c8ba69db4c3df52f, type: 2}
+  - {fileID: 11400000, guid: bc99d52f82d73ee4a800964973804c0f, type: 2}
+  - {fileID: 11400000, guid: c1a02b497d7b01a448c593802f3a1fbd, type: 2}
+--- !u!114 &2085245899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085245896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6307b0f05a3449a4999a0162f1a78219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
