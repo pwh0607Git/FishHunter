@@ -42,6 +42,8 @@ public class PropsPooling : MonoBehaviour
         PropData data = prop.GetComponent<PropController>().Data;
         
         if(!propsPool.ContainsKey(data)) return;
+        
+        prop.GetComponent<PropController>().OnDisenableEvent -= ReturnProps;
 
         propsPool[data].Enqueue(prop);
         prop.transform.SetParent(transform);

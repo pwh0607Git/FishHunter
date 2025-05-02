@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fac963c7aa8074bbfa130a8f0ef68b, type: 3}
   m_Name: FishData
   m_EditorClassIdentifier: 
-  moveSpeed: 0.8
+  moveSpeed: 1
   amount: 100
   prefab: {fileID: 2231369902755307392, guid: dd1af666c58d3784cb130675f6a27856, type: 3}
   effects: 00000000

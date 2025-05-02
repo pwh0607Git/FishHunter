@@ -506,7 +506,9 @@ MonoBehaviour:
   propsDatas:
   - {fileID: 11400000, guid: a6a92f56b83e67a4c8ba69db4c3df52f, type: 2}
   - {fileID: 11400000, guid: bc99d52f82d73ee4a800964973804c0f, type: 2}
-  - {fileID: 11400000, guid: c1a02b497d7b01a448c593802f3a1fbd, type: 2}
+  - {fileID: 11400000, guid: eca82c476302bb14388a1d6e90b831b9, type: 2}
+  - {fileID: 11400000, guid: d10eda2dbf097064a92edee5e391edae, type: 2}
+  - {fileID: 11400000, guid: 74b5c28ff2acf7940b06844e3f4c9d19, type: 2}
 --- !u!114 &2085245899
 MonoBehaviour:
   m_ObjectHideFlags: 0
