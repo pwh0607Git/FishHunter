@@ -8,4 +8,6 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Animator_Props_Squid
   m_Controller: {fileID: 9100000, guid: a0f00c4a14ffa8b469e08016c3cbc2a0, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 5414490534771693905, guid: 1c77555fce85aa74da16fd6cadfac6b8, type: 3}
+    m_OverrideClip: {fileID: 5414490534771693905, guid: f2c84b0c526b37c45806428bb221b269, type: 3}

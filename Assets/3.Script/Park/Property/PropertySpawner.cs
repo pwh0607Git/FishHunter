@@ -1,21 +1,26 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PropertySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject[] propsPrefabs;
+    [SerializeField] List<PropData> propsDatas;
+    private PropsPooling pooling;
 
-    TrackManager trackManager;      //추후에 싱글톤으로 변경예정
+    private TrackManager trackManager;      //추후에 싱글톤으로 변경예정
 
     //test
-    float interval = 1f;
+    float interval = 3f;
 
     float elapsedTime = 0f;
 
     void Start()
     {
-        trackManager = FindAnyObjectByType<TrackManager>();    
+        trackManager = FindAnyObjectByType<TrackManager>();   
+        TryGetComponent(out pooling);
+
+        for(int i=0; i<propsDatas.Count; i++){
+            pooling.InitPool(propsDatas[i], 5);
+        }
     }
     
     void Update()
@@ -30,9 +35,14 @@ public class PropertySpawner : MonoBehaviour
 
     public void SpawnProps(){
         Track currentTrack = trackManager.lastTrack;
-        int i = Random.Range(0, propsPrefabs.Length);
-        GameObject prefab = propsPrefabs[i];
-        Vector3 spawnPoint = currentTrack.obstaclePositions[Random.Range(0, currentTrack.obstaclePositions.Length)].position;
-        GameObject clone = Instantiate(prefab, spawnPoint, Quaternion.identity, currentTrack.transform);
+        int i = Random.Range(0, propsDatas.Count);
+
+        PropData data = propsDatas[i];
+        GameObject prop = pooling.GetProps(data);
+
+        Vector3 spawnPosition = currentTrack.obstaclePositions[Random.Range(0, currentTrack.obstaclePositions.Length)].position;
+        
+        prop.transform.position = spawnPosition;
+        prop.transform.SetParent(currentTrack.transform);    
     }
 }

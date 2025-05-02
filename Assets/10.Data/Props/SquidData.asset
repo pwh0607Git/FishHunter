@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fac963c7aa8074bbfa130a8f0ef68b, type: 3}
   m_Name: SquidData
   m_EditorClassIdentifier: 
-  type: 0
-  moveSpeed: 0
-  score: 0
-  model: {fileID: 0}
+  moveSpeed: 0.8
+  amount: 80
+  prefab: {fileID: 2906078608516591512, guid: 75c58b6eaef198b4b8f4ba7a0440d5b9, type: 3}
   effects: 0000000004000000
