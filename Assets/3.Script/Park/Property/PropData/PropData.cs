@@ -10,6 +10,6 @@ public class PropData : ScriptableObject
 {
     public float moveSpeed;
     public int amount;
-    public GameObject prefab;
+    public GameObject prefab;                   // 모델
     public List<EffectType> effects;
 }

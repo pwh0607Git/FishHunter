@@ -42,11 +42,6 @@ public class PropController : MonoBehaviour
         CheckReturnPosition();
     }
 
-    private void Death(){
-        animator.PlayInFixedTime("DEATH");
-        // 풀링으로 반환
-    }
-
     private void Wandor(){
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, Data.moveSpeed * Time.deltaTime);
     
@@ -87,24 +82,26 @@ public class PropController : MonoBehaviour
     {
         if(!other.transform.tag.Equals("SHOOT")) return;
         
-        Death();
+        Death(other.transform.GetComponentInParent<PlayerEventListener>());
+    }
+
+    private void Death(PlayerEventListener target){
+        if(animator == null) return;
+        
+        animator.PlayInFixedTime("DEATH");
+
+        foreach( var effect in effects){
+            effect.Apply(target);
+        }
+
+        OnDisenableEvent?.Invoke(this.gameObject);
     }
 
     void OnEnable()
     {
-        // player.OnCatchProps += OnCatch;
+        animator.PlayInFixedTime("SWIM");
     }
 
-    void OnDisable()
-    {
-        // player.OnCatchProps += OnCatch;
-    }
-
-    // 플레이어에게 잡혔을 때.
-    private void OnCatch(){
-        //player.OnCatchProps?.Invoke(effects);       //effect를 보내어 Apply실횅!
-    }
-    
     void CheckReturnPosition(){
         if(transform.position.z < 0){
             OnDisenableEvent?.Invoke(this.gameObject);

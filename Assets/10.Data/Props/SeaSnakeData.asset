@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fac963c7aa8074bbfa130a8f0ef68b, type: 3}
   m_Name: SeaSnakeData
   m_EditorClassIdentifier: 
-  moveSpeed: 0.8
+  moveSpeed: 1
   amount: 150
   prefab: {fileID: 8271754093097555121, guid: 8065db3276118304791d5e5e92e50b3a, type: 3}
   effects: 00000000
