@@ -28,22 +28,29 @@ public class ObstacleSpawner : MonoBehaviour
         // Ʈ�� ������Ʈ �� �ش� ��ġ�� ���� ����� Ʈ���� ã��
         Track track = trackManager.lastTrack;
 
-        if (track == null)
+        if (track == null || !track.gameObject.activeSelf || 
+            track.obstaclePositions == null || track.obstaclePositions.Length < 9)
         {
-            Debug.LogWarning("Ʈ���� ��ֹ��� ��ġ�� �� �����ϴ�: ��ġ ��ġ ����");
+            Debug.LogWarning("올바르지 않은 트랙 또는 장애물 위치 부족");
             return;
         }
 
-        if (!track.gameObject.activeSelf) return;
-        // ��ֹ� ��ġ�� �� �ϳ��� ���� �����ؼ� ����
+        int lane = Random.Range(0, 3);
+        int startIndex = lane * 3; //0, 3, 6 중 하나
+        int chosenIndex = Random.Range(startIndex, startIndex + 3);
 
-        if (track.obstaclePositions != null && track.obstaclePositions.Length > 0)
-        {
-            int index = Random.Range(0, track.obstaclePositions.Length);
-            Transform obstacleSpawn = track.obstaclePositions[index];
+        Transform obstacleSpawn = track.obstaclePositions[chosenIndex];
+        Instantiate(obstaclePrefab, obstacleSpawn.position, Quaternion.identity, track.transform);
 
-            GameObject obj = Instantiate(obstaclePrefab, obstacleSpawn.position, Quaternion.identity, track.transform);
-        }
-        return; // ã������ ����
+        //if (!track.gameObject.activeSelf) return;
+
+        //if (track.obstaclePositions != null && track.obstaclePositions.Length > 0)
+        //{
+        //    int index = Random.Range(0, track.obstaclePositions.Length);
+        //    Transform obstacleSpawn = track.obstaclePositions[index];
+
+        //    GameObject obj = Instantiate(obstaclePrefab, obstacleSpawn.position, Quaternion.identity, track.transform);
+        //}
+        //return; 
     }
 }
