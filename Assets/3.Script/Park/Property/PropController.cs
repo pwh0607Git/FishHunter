@@ -46,7 +46,6 @@ public class PropController : MonoBehaviour
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, Data.moveSpeed * Time.deltaTime);
     
         if(Vector3.Distance(transform.localPosition, targetPosition) < 0.1f){
-            // 목적지 도착.
             SetTargetPosition();
         }
     }

@@ -5,7 +5,6 @@ public class PropertySpawner : MonoBehaviour
 {
     [SerializeField] List<PropData> propsDatas;
     private PropsPooling pooling;
-
     private TrackManager trackManager;      //추후에 싱글톤으로 변경예정
 
     //test
@@ -38,7 +37,7 @@ public class PropertySpawner : MonoBehaviour
         int i = Random.Range(0, propsDatas.Count);
 
         PropData data = propsDatas[i];
-        GameObject prop = pooling.GetProps(data);
+        GameObject prop = pooling.GetObject(data);
 
         Vector3 spawnPosition = currentTrack.obstaclePositions[Random.Range(0, currentTrack.obstaclePositions.Length)].position;
         
