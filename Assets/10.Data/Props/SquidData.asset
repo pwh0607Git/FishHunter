@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52fac963c7aa8074bbfa130a8f0ef68b, type: 3}
+  m_Script: {fileID: 11500000, guid: f01869723382df447b13e876cf7a8f02, type: 3}
   m_Name: SquidData
   m_EditorClassIdentifier: 
-  type: 0
-  moveSpeed: 0
-  score: 0
-  model: {fileID: 0}
+  moveSpeed: 1
+  amount: 120
+  prefab: {fileID: 0}
   effects: 0000000004000000
+  duration: 1.5
