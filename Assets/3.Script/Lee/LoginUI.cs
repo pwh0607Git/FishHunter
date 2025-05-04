@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LoginUI : MonoBehaviour
 {
-    public InputField nicknameInput;
+    public TMP_InputField nicknameInput;
 
     public void OnStartButtonClicked()
     {

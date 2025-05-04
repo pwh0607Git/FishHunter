@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class LobbyUI : MonoBehaviour
 {
-    public Text nicknameText;
+    public TextMeshProUGUI nicknameText;
     public GameObject[] characterPrefabs;
     public Transform previewSpot;
     private GameObject currentPreview;
@@ -12,7 +12,7 @@ public class LobbyUI : MonoBehaviour
 
     void Start()
     {
-        nicknameText.text = "닉네임: " + PlayerData.Nickname;
+        nicknameText.text = "Nickname: " + PlayerData.Nickname;
         ShowCharacter(0);  // 기본 첫 캐릭터 표시
     }
 
