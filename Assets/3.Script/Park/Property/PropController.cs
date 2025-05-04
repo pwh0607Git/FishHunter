@@ -7,7 +7,7 @@ public class PropController : MonoBehaviour
 {
     public PropData Data{get; set;}
 
-    public event UnityAction<GameObject> OnDisenableEvent;
+    public event UnityAction<GameObject> OnDisableEvent;
 
     [Header("자체 프로퍼티")]
     private Animator animator;
@@ -93,7 +93,7 @@ public class PropController : MonoBehaviour
             effect.Apply(target);
         }
 
-        OnDisenableEvent?.Invoke(this.gameObject);
+        OnDisableEvent?.Invoke(this.gameObject);
     }
 
     void OnEnable()
@@ -103,7 +103,7 @@ public class PropController : MonoBehaviour
 
     void CheckReturnPosition(){
         if(transform.position.z < 0){
-            OnDisenableEvent?.Invoke(this.gameObject);
+            OnDisableEvent?.Invoke(this.gameObject);
         }
     }
 }

@@ -522,7 +522,7 @@ Transform:
   m_GameObject: {fileID: 1119771593}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 50}
+  m_LocalPosition: {x: 0, y: 0, z: 45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -574,8 +574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleDatas:
-  - {fileID: 11400000, guid: 5102fb321e4d2924f84c878ac463e315, type: 2}
   - {fileID: 11400000, guid: c21551a991edf7a4ab970b3562970da2, type: 2}
+  - {fileID: 11400000, guid: 5102fb321e4d2924f84c878ac463e315, type: 2}
   trackManager: {fileID: 0}
   spawnPoint: {fileID: 1119771594}
   spawnInterval: 3

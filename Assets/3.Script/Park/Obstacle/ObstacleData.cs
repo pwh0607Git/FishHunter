@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ObstacleType{
-    NONE, SINGE, FULL
+    NONE, SINGLE, FULL
 }
 
 [CreateAssetMenu(menuName = "Obstacle")]

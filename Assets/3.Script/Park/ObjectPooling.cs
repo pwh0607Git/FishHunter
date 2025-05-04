@@ -6,7 +6,7 @@ public class ObjectPooling<T> : MonoBehaviour
     protected Dictionary<T, Queue<GameObject>> pool = new();
 
     public void InitPool(T data, int maxSize = 5){
-    if(pool.ContainsKey(data)) return;           //이미 포함되어있는 프리팹은 무시
+        if(pool.ContainsKey(data)) return;           //이미 포함되어있는 프리팹은 무시
 
         pool.Add(data, new());
         for(int i=0; i<maxSize; i++){

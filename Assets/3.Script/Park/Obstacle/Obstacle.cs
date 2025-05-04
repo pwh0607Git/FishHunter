@@ -1,47 +1,40 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Obstacle : MonoBehaviour
 {
-    public ObstacleData Data{get; set;}
-    public event UnityAction<GameObject> OnDisenableEventS;
-    private List<GameObject> meshList = new();
+    [SerializeField] private ObstacleData data;
+
+    public ObstacleData Data{get => data; set => data = value;}
+
+    public event UnityAction<GameObject> OnDisableEvent;
     
     [SerializeField] float minScaleY;
     [SerializeField] float maxScaleY;
 
-    void Start()
+    void Update()
     {
-        InitModelData();
+        CheckReturnPosition();
     }
-
     void OnEnable()
     {
-        SetMesh();
-    }
+        if(Data == null) return;
 
-    void OnDisable(){
-        ResetMesh();
-    }
-
-    private void ResetMesh()
-    {
-        foreach(var mesh in meshList){
-            if(mesh.activeSelf) mesh.SetActive(false);
+        if(Data.type.Equals(ObstacleType.SINGLE)){
+            foreach(Transform child in transform){
+                SetScale(child);
+            }
         }
     }
 
-    private void InitModelData(){
-        // foreach(var model in Data){
-        //     GameObject o = Instantiate(model, transform);
-        //     o.transform.localPosition = Vector3.zero;
-        //     meshList.Add(o);
-        // }
+    void SetScale(Transform mesh){  
+        float rnd = Random.Range(minScaleY, maxScaleY);
+        mesh.localScale = new Vector3(1,rnd,1);
     }
 
-    private void SetMesh(){
-        int i = Random.Range(0, meshList.Count);
-        meshList[i].SetActive(true);
+    void CheckReturnPosition(){
+        if(transform.position.z < 0){
+            OnDisableEvent?.Invoke(this.gameObject);
+        }
     }
 }

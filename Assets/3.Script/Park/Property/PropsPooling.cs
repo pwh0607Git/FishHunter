@@ -8,7 +8,7 @@ public class PropsPooling : ObjectPooling<PropData>
         pool[data].Enqueue(prop.gameObject);
         prop.gameObject.SetActive(false);
 
-        prop.OnDisenableEvent += ReturnProps;
+        prop.OnDisableEvent += ReturnProps;
     }
 
     public override void ReturnProps(GameObject prop){
@@ -16,7 +16,7 @@ public class PropsPooling : ObjectPooling<PropData>
         
         if(!pool.ContainsKey(data)) return;
         
-        prop.GetComponent<PropController>().OnDisenableEvent -= ReturnProps;
+        prop.GetComponent<PropController>().OnDisableEvent -= ReturnProps;
 
         pool[data].Enqueue(prop);
         prop.transform.SetParent(transform);

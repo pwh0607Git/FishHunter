@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
-  destroyZ: -5
+  destroyZ: -10
   obstaclePositions:
   - {fileID: 6874358535467252205}
   - {fileID: 958906824141968568}
