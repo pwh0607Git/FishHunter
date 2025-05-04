@@ -10,6 +10,7 @@ public class TrackManager : MonoBehaviour
 
     [SerializeField] GameObject trackPrefab;
     [SerializeField] public Transform spawnPosition;
+    
     public float spawnInterval = 1.5f;
 
     public UnityAction<Vector3> OnDestroyTrack;
@@ -19,12 +20,12 @@ public class TrackManager : MonoBehaviour
     public Track lastTrack;            
 
     private int poolSize = 8;   //
+    [SerializeField] int startCount = 3;
 
     private void Start()
     {
         OnDestroyTrack += ReuseTrack;
 
-        // Ʈ�� ������Ʈ �̸� ����
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(trackPrefab, transform);
@@ -33,15 +34,14 @@ public class TrackManager : MonoBehaviour
             trackPool.Enqueue(track);
         }
 
-        // ���� Ʈ�� ��ġ
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < startCount; i++)
         {
-            Vector3 position = spawnPosition.position + Vector3.back * 10f * i;
+            Vector3 position = spawnPosition.position + Vector3.back * 20f * i;
             ReuseTrack(position);
         }
     }
 
-    void ReuseTrack(Vector3 position) //Track ����
+    void ReuseTrack(Vector3 position)
     {
         if (trackPool.Count > 0)
         {
@@ -51,16 +51,12 @@ public class TrackManager : MonoBehaviour
             track.moveSpeed = scrollSpeed;
             lastTrack = track;
         }
-        else
-        { 
-
-        }
     }
 
     // Ʈ���� ���� �� �ٽ� Ǯ�� �ֱ�
     public void ReturnToPool(Track track)
     {
         track.gameObject.SetActive(false);
-        trackPool.Enqueue(track); //ť ���� �����͸� �߰��Ѵ�.
+        trackPool.Enqueue(track);
     }
 }
