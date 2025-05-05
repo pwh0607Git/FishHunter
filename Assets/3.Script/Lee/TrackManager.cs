@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using System;
 using System.Collections.Generic;
 
-public class TrackManager : MonoBehaviour
+public class TrackManager : BehaviourSingleton<TrackManager>
 {
+    protected override bool IsDontDestroy() => false;
+
     public float scrollSpeed = 5f;
     public Transform cameraTransform;
 
@@ -14,6 +15,7 @@ public class TrackManager : MonoBehaviour
     public float spawnInterval = 1.5f;
 
     public UnityAction<Vector3> OnDestroyTrack;
+    private UnityAction OnCreateTrack;               // 트랙이 생성되었을 때.
 
     private Queue<Track> trackPool = new Queue<Track>();
 
@@ -50,13 +52,22 @@ public class TrackManager : MonoBehaviour
             track.transform.position = position;
             track.moveSpeed = scrollSpeed;
             lastTrack = track;
+
+            OnCreateTrack?.Invoke();
         }
     }
 
-    // Ʈ���� ���� �� �ٽ� Ǯ�� �ֱ�
     public void ReturnToPool(Track track)
     {
         track.gameObject.SetActive(false);
         trackPool.Enqueue(track);
+    }
+
+    public void RegisterTrackEvent(UnityAction action){
+        OnCreateTrack += action;
+    }
+
+    public void UnregisterTrackEvent(UnityAction action){
+        OnCreateTrack -= action;
     }
 }

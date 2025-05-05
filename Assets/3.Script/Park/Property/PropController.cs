@@ -13,7 +13,7 @@ public class PropController : MonoBehaviour
     private Animator animator;
     List<IEffect> effects = new();    
 
-    private Vector3 targetPosition;             //다음으로 이동할 위치
+    private Vector3 targetPosition;
 
     private float minX;
     private float maxX;
@@ -21,7 +21,7 @@ public class PropController : MonoBehaviour
     public float minY;
     public float maxY;
 
-    TrackManager trackManager;          //추후에 싱글톤으로 변경예정
+    TrackManager trackManager;
 
     void Start()
     {
@@ -32,7 +32,6 @@ public class PropController : MonoBehaviour
         effects = EffectFactory.CreateEffects(Data);
         SetMinMaxXY();
         SetTargetPosition();
-        
     }
 
     void Update()

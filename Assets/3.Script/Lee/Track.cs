@@ -1,27 +1,33 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Track : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float destroyZ = -5f;
+    public float destroyZ = -10f;
 
     [SerializeField] public Transform[] obstaclePositions;
 
     private TrackManager manager;
 
+    [SerializeField] float headPoint;
+
+    private Collider col;
+
     private void Start()
     {
         manager = FindAnyObjectByType<TrackManager>();
+    
+        TryGetComponent(out col);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.back * moveSpeed * Time.fixedDeltaTime);
 
-        if (transform.position.z < destroyZ)
+        headPoint = col.bounds.min.z;
+
+        if (headPoint <= destroyZ)
         {
-            // ��Ȱ��ȭ �� Ǯ�� ��ȯ
             manager.ReturnToPool(this);
         }
     }
