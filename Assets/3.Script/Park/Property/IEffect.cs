@@ -2,53 +2,55 @@ using UnityEngine;
 
 public interface IEffect
 {
-    public abstract void Apply(GameObject player);
+    public abstract void Apply(PlayerEventListener player);
 }
 
 public class ScoreUpEffect : IEffect
 {
-    public void Apply(GameObject player)
+    private int amount;
+    public ScoreUpEffect(int amount){
+        this.amount = amount;
+    }
+    public void Apply(PlayerEventListener player)
     {
-        
+        player.ApplyScoreUp(amount);
     }
 }
 
 public class ScoreDownEffect : IEffect
 {
-    public void Apply(GameObject player)
+    private int amount;
+    public ScoreDownEffect(int amount){
+        this.amount = amount;
+    }
+
+    public void Apply(PlayerEventListener player)
     {
-        
+        player.ApplyScoreDown(amount);  
     }
 }
 
 public class HeartUpEffect : IEffect
 {
-    public void Apply(GameObject player)
+    public void Apply(PlayerEventListener player)
     {
-        
+        player.ApplyHeartUp();
     }
 }
 
 public class HeartDownEffect : IEffect
 {
-    public void Apply(GameObject player)
+    public void Apply(PlayerEventListener player)
     {
-        
+        player.ApplyHeartDown();
     }
 }
 
 public class InterfereEffect : IEffect
 {
-    public void Apply(GameObject player)
+    // private int durtion;
+    public void Apply(PlayerEventListener player)
     {
-        
-    }
-}
-
-public class DamageEffect : IEffect
-{
-    public void Apply(GameObject player)
-    {
-        
+        player.ApplyInterfere();
     }
 }
