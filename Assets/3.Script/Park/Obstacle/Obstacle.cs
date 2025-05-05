@@ -33,7 +33,7 @@ public class Obstacle : MonoBehaviour
     }
 
     void CheckReturnPosition(){
-        if(transform.position.z < 0){
+        if(transform.position.z < .5f){
             OnDisableEvent?.Invoke(this.gameObject);
         }
     }

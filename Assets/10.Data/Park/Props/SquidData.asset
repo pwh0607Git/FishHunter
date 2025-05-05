@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   amount: 120
-  prefab: {fileID: 0}
+  prefab: {fileID: 2906078608516591512, guid: 75c58b6eaef198b4b8f4ba7a0440d5b9, type: 3}
   effects: 0000000004000000
   duration: 1.5
