@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
 
     public ObstacleData Data{get => data; set => data = value;}
 
-    public event UnityAction<GameObject> OnDisableEvent;
+    public UnityAction<GameObject> OnDisableEvent;
     
     [SerializeField] float minScaleY;
     [SerializeField] float maxScaleY;
@@ -16,6 +16,7 @@ public class Obstacle : MonoBehaviour
     {
         CheckReturnPosition();
     }
+
     void OnEnable()
     {
         if(Data == null) return;
@@ -33,7 +34,7 @@ public class Obstacle : MonoBehaviour
     }
 
     void CheckReturnPosition(){
-        if(transform.position.z < .5f){
+        if(transform.position.z <= 0.5f){
             OnDisableEvent?.Invoke(this.gameObject);
         }
     }

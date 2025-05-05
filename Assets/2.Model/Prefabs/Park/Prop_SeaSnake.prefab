@@ -339,7 +339,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4774587308344316795}
@@ -711,7 +711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1b99fa0650b8244b36104815fa584f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
   minY: 0
   maxY: 6
 --- !u!65 &3927372322610537120
@@ -733,7 +732,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.48105258, z: 1.2919998}
+  m_Size: {x: 0.5, y: 1, z: 2}
   m_Center: {x: 0, y: 0.2899907, z: 0.0014134645}
 --- !u!54 &6747949409246099286
 Rigidbody:

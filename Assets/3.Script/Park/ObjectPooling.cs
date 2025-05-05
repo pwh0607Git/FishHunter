@@ -9,13 +9,15 @@ public class ObjectPooling<T> : MonoBehaviour
         if(pool.ContainsKey(data)) return;           //이미 포함되어있는 프리팹은 무시
 
         pool.Add(data, new());
-        for(int i=0; i<maxSize; i++){
+
+        for(int i = 0; i<maxSize; i++){
             MakeClone(data);
         }
     }
 
     public GameObject GetObject(T data){
         if(data == null) return null;
+        
         if(!pool.ContainsKey(data)) return null;
 
         if(pool[data].Count <= 0){  

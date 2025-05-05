@@ -97,11 +97,12 @@ public class PropController : MonoBehaviour
 
     void OnEnable()
     {
+        if(animator == null) return;
         animator.PlayInFixedTime("SWIM");
     }
 
     void CheckReturnPosition(){
-        if(transform.position.z < 0){
+        if(transform.position.z <= 0.5f){
             OnDisableEvent?.Invoke(this.gameObject);
         }
     }

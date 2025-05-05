@@ -36,7 +36,7 @@ public class Track : MonoBehaviour
     {
         if (manager != null)
         {
-            manager.OnDestroyTrack?.Invoke(manager.spawnPosition.position);
+            manager.OnDestroyTrack?.Invoke(manager.spawnPosition.position, false);
         }
     }
 }
