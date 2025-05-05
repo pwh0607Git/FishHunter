@@ -7,13 +7,13 @@ public class PropController : MonoBehaviour
 {
     public PropData Data{get; set;}
 
-    public event UnityAction<GameObject> OnDisenableEvent;
+    public event UnityAction<GameObject> OnDisableEvent;
 
     [Header("자체 프로퍼티")]
     private Animator animator;
     List<IEffect> effects = new();    
 
-    private Vector3 targetPosition;             //다음으로 이동할 위치
+    private Vector3 targetPosition;
 
     private float minX;
     private float maxX;
@@ -21,7 +21,7 @@ public class PropController : MonoBehaviour
     public float minY;
     public float maxY;
 
-    TrackManager trackManager;          //추후에 싱글톤으로 변경예정
+    TrackManager trackManager;
 
     void Start()
     {
@@ -32,7 +32,6 @@ public class PropController : MonoBehaviour
         effects = EffectFactory.CreateEffects(Data);
         SetMinMaxXY();
         SetTargetPosition();
-        
     }
 
     void Update()
@@ -46,7 +45,6 @@ public class PropController : MonoBehaviour
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetPosition, Data.moveSpeed * Time.deltaTime);
     
         if(Vector3.Distance(transform.localPosition, targetPosition) < 0.1f){
-            // 목적지 도착.
             SetTargetPosition();
         }
     }
@@ -94,7 +92,7 @@ public class PropController : MonoBehaviour
             effect.Apply(target);
         }
 
-        OnDisenableEvent?.Invoke(this.gameObject);
+        OnDisableEvent?.Invoke(this.gameObject);
     }
 
     void OnEnable()
@@ -104,7 +102,7 @@ public class PropController : MonoBehaviour
 
     void CheckReturnPosition(){
         if(transform.position.z < 0){
-            OnDisenableEvent?.Invoke(this.gameObject);
+            OnDisableEvent?.Invoke(this.gameObject);
         }
     }
 }
