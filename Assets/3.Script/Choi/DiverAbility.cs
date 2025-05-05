@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 
-public class CharacterAttack : MonoBehaviour
+public class DiverAbility : MonoBehaviour
 {
     private Transform point { get; set; }
     private CharacterControl cc;
