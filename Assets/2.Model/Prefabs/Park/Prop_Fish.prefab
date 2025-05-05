@@ -342,7 +342,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2100754269459869764}
@@ -361,10 +361,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7243226917780356532}
+  - component: {fileID: -139813110969992853}
   - component: {fileID: 4634878765102986363}
   - component: {fileID: 1089445936032819002}
   - component: {fileID: 7952096559234576402}
-  - component: {fileID: -139813110969992853}
   m_Layer: 0
   m_Name: Prop_Fish
   m_TagString: Untagged
@@ -388,6 +388,20 @@ Transform:
   - {fileID: 4386519137642587268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-139813110969992853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231369902755307392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1b99fa0650b8244b36104815fa584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minY: 0
+  maxY: 6
 --- !u!65 &4634878765102986363
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -407,8 +421,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.5, z: 1.1}
-  m_Center: {x: 0, y: 0.2, z: -0.05}
+  m_Size: {x: 0.6, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.4, z: -0.05}
 --- !u!54 &1089445936032819002
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -457,21 +471,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-139813110969992853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2231369902755307392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1b99fa0650b8244b36104815fa584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  minY: 0
-  maxY: 6
 --- !u!1 &2250418567805069999
 GameObject:
   m_ObjectHideFlags: 0

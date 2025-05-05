@@ -8,7 +8,6 @@ public class ObstaclePooling : ObjectPooling<ObstacleData>
         pool[data].Enqueue(clone.gameObject);
         clone.gameObject.SetActive(false);
 
-        //리턴 이벤트.
         clone.OnDisableEvent += ReturnProps;
     }
 
@@ -16,8 +15,6 @@ public class ObstaclePooling : ObjectPooling<ObstacleData>
         Obstacle data = prop.GetComponent<Obstacle>();
 
         if(!pool.ContainsKey(data.Data)) return;
-
-        data.OnDisableEvent -= ReturnProps;
         
         pool[data.Data].Enqueue(prop);
         prop.transform.SetParent(transform);

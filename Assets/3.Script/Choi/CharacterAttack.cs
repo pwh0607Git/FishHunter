@@ -11,9 +11,14 @@ public class CharacterAttack : MonoBehaviour
     private LineRenderer lineRenderer;
 
     [Header("Projectile Settings")]
-    public Projectile projectileObject;           // Inspector에서 할당
     public float projectileSpeed = 0.1f;
     public float stayTimeAtTarget = 0.5f;
+
+    [SerializeField] GameObject harpoon;        //작살
+    [SerializeField] Transform harpoonOrigin;
+
+    private Vector3 harpoonOriginPosition;
+    private Quaternion harpoonOriginQuaternion;
 
     private bool isAttacking = false;
 
@@ -28,10 +33,13 @@ public class CharacterAttack : MonoBehaviour
             Debug.LogError("point not found");
         }
 
-        if (projectileObject == null)
+        if (harpoon == null)
         {
             Debug.LogError("Projectile object is not assigned!");
         }
+    
+        harpoonOriginPosition = harpoon.transform.localPosition;
+        harpoonOriginQuaternion = harpoon.transform.localRotation;
     }
 
     void Update()
@@ -45,6 +53,8 @@ public class CharacterAttack : MonoBehaviour
 
             StartCoroutine(FireAndReturnProjectile(targetPosition, isHit));
         }
+
+        UpdateLine();
     }
 
     IEnumerator FireAndReturnProjectile(Vector3 targetPosition, bool hitSomething)
@@ -52,22 +62,27 @@ public class CharacterAttack : MonoBehaviour
         isAttacking = true;
 
         // Projectile 초기 위치 세팅 및 방향
-        projectileObject.transform.position = point.position;
-        projectileObject.transform.LookAt(targetPosition);
+        harpoon.transform.position = point.position;
+        harpoon.transform.LookAt(targetPosition);
 
         // 발사 애니메이션
-        yield return projectileObject.transform.DOMove(targetPosition, projectileSpeed)
+        yield return harpoon.transform.DOMove(targetPosition, projectileSpeed)
             .SetEase(Ease.Linear)
             .WaitForCompletion();
 
         // 도착 후 대기
         yield return new WaitForSeconds(stayTimeAtTarget);
 
-        // 회수 애니메이션
-        yield return projectileObject.transform.DOMove(point.position, projectileSpeed)
-            .SetEase(Ease.InOutSine)
-            .WaitForCompletion();
+        harpoon.transform.localPosition = Vector3.zero;
+        harpoon.transform.localRotation = harpoonOriginQuaternion;
 
         isAttacking = false;
+    }
+
+    void UpdateLine(){
+        if (harpoon == null) return;
+
+        lineRenderer.SetPosition(0, harpoonOrigin.position);
+        lineRenderer.SetPosition(1, harpoon.transform.position);
     }
 }

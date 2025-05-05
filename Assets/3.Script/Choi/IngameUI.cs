@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,11 +7,14 @@ public class IngameUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text_score;
     [SerializeField] TextMeshProUGUI text_time;
+    
     [SerializeField] Transform healthbar;
     [SerializeField] Transform missilebar;
+    
     [SerializeField] GameObject health;
     [SerializeField] GameObject missile;
     [SerializeField] Button menubutton;
+
     [SerializeField] int currentHealth = 3;
     [SerializeField] int currentMissile = 3;
 
@@ -39,7 +41,7 @@ public class IngameUI : MonoBehaviour
 
     void OnEnable()
     {
-        //이벤틑 등록
+
     }
 
     void Update()

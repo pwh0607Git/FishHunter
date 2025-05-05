@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 using DG.Tweening;
 using System.Collections.Generic;
 
@@ -48,6 +47,7 @@ public class CharacterControl : MonoBehaviour
         {
             return;
         }
+
         HandleLaneInput();
         HandleJumpInput();
     }
@@ -108,6 +108,8 @@ public class CharacterControl : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+        if(other.tag == "OBSTACLE"){
+            
+        }       
     }
 }
