@@ -21,10 +21,6 @@ public class CharacterControl : MonoBehaviour
     private Sequence sequence;
     public Camera mainCam;
 
-    public int score;
-    public int currentHealth;
-    public int currentMissile;
-
     private float jumpForce => characterProfile != null ? characterProfile.JumpForce : 5f;
     private float moveDuration => characterProfile != null ? characterProfile.LaneMoveDuration : 0.2f;
 
