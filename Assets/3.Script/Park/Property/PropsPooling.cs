@@ -3,7 +3,12 @@ using UnityEngine;
 public class PropsPooling : ObjectPooling<PropData>
 {
     protected override void MakeClone(PropData data){
-        PropController prop = Instantiate(data.prefab, transform).GetComponent<PropController>();
+        PropController prop = Instantiate(data.prefab, gameObject.transform).GetComponent<PropController>();
+        
+        if(prop == null){
+            Debug.Log("prop is null..");
+            return;
+        }
         prop.Data = data;
         pool[data].Enqueue(prop.gameObject);
         prop.gameObject.SetActive(false);

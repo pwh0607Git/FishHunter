@@ -14,7 +14,7 @@ public class TrackManager : BehaviourSingleton<TrackManager>
     
     public float spawnInterval = 1.5f;
 
-    public UnityAction<Vector3> OnDestroyTrack;
+    public UnityAction<Vector3, bool> OnDestroyTrack;
     private UnityAction OnCreateTrack;               // 트랙이 생성되었을 때.
 
     private Queue<Track> trackPool = new Queue<Track>();
@@ -26,7 +26,7 @@ public class TrackManager : BehaviourSingleton<TrackManager>
 
     private void Start()
     {
-        OnDestroyTrack += ReuseTrack;
+        OnDestroyTrack += SpawnTrack;
 
         for (int i = 0; i < poolSize; i++)
         {
@@ -36,14 +36,19 @@ public class TrackManager : BehaviourSingleton<TrackManager>
             trackPool.Enqueue(track);
         }
 
+        StartGame();
+
+    }
+
+    void StartGame(){
         for (int i = 0; i < startCount; i++)
         {
             Vector3 position = spawnPosition.position + Vector3.back * 20f * i;
-            ReuseTrack(position);
+            SpawnTrack(position, true);
         }
     }
 
-    void ReuseTrack(Vector3 position)
+    void SpawnTrack(Vector3 position, bool isStart)
     {
         if (trackPool.Count > 0)
         {
@@ -53,7 +58,9 @@ public class TrackManager : BehaviourSingleton<TrackManager>
             track.moveSpeed = scrollSpeed;
             lastTrack = track;
 
-            OnCreateTrack?.Invoke();
+            if(!isStart){
+                OnCreateTrack?.Invoke();
+            }
         }
     }
 
