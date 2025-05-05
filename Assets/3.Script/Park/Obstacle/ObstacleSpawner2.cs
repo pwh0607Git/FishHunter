@@ -5,36 +5,22 @@ public class ObstacleSpawner2 : MonoBehaviour
 {
     [SerializeField] List<ObstacleData> obstacleDatas;
     
-    [SerializeField] private TrackManager trackManager;
     [SerializeField] private Transform spawnPoint;
     private ObstaclePooling pooling;
 
-    [SerializeField] private float spawnInterval = 3f;
     void Start()
     {
-        trackManager = FindObjectOfType<TrackManager>();
-
         TryGetComponent(out pooling);
 
         foreach(var data in obstacleDatas){
             pooling.InitPool(data, 6);
         }
-    }
-
-    float elapsed = 0f;
-
-    void Update()
-    {
-        elapsed += Time.deltaTime;
-
-        if(elapsed >= spawnInterval){
-            elapsed = 0f;
-            SpawnObstacle();
-        }
+    
+        TrackManager.I.RegisterTrackEvent(SpawnObstacle);
     }
 
     private void SpawnObstacle(){
-        int count = trackManager.lastTrack.obstaclePositions.Length;
+        int count = TrackManager.I.lastTrack.obstaclePositions.Length;
 
         List<ObstacleData> ods = new();
 
@@ -47,8 +33,7 @@ public class ObstacleSpawner2 : MonoBehaviour
         }while(!CheckValid(ods));
 
         for(int i=0; i < ods.Count; i++){
-            // 랜덤 위치 가져오기 => 트랙에서 가져오기
-            Track selectedTrack = trackManager.lastTrack;
+            Track selectedTrack = TrackManager.I.lastTrack;
             
             GameObject o = pooling.GetObject(ods[i]);
 
