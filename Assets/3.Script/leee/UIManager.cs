@@ -4,13 +4,13 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("ÆÐ³Î")]
+    [Header("ï¿½Ð³ï¿½")]
     public GameObject startPanel;
     public GameObject characterPanel;
 
-    [Header("Ä³¸¯ÅÍ °ü·Ã")]
+    [Header("Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     public Image selectedCharacterPreview;
-    public Sprite[] characterSprites; // °¢ Ä³¸¯ÅÍ ÀÌ¹ÌÁö
+    public Sprite[] characterSprites; // ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
     private int selectedCharacterIndex = -1;
 
     public void ShowStartPanel()
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"SelectCharacter: Àß¸øµÈ ÀÎµ¦½º Á¢±Ù ½Ãµµ (index: {index})");
+            Debug.LogWarning($"SelectCharacter: ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ (index: {index})");
         }
     }
 
@@ -42,11 +42,11 @@ public class UIManager : MonoBehaviour
     {
         if (selectedCharacterIndex == -1)
         {
-            Debug.Log("Ä³¸¯ÅÍ¸¦ ¼±ÅÃÇÏ¼¼¿ä!");
+            Debug.Log("Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½!");
             return;
         }
 
-        Debug.Log("¼±ÅÃµÈ Ä³¸¯ÅÍ: " + selectedCharacterIndex);
+        Debug.Log("ï¿½ï¿½ï¿½Ãµï¿½ Ä³ï¿½ï¿½ï¿½ï¿½: " + selectedCharacterIndex);
         ShowStartPanel();
     }
 
@@ -54,11 +54,11 @@ public class UIManager : MonoBehaviour
     {
         if (selectedCharacterIndex == -1)
         {
-            Debug.Log("Ä³¸¯ÅÍ¸¦ ¸ÕÀú ¼±ÅÃÇÏ¼¼¿ä!");
+            Debug.Log("Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½!");
             return;
         }
 
-        Debug.Log("°ÔÀÓ ½ÃÀÛ!");
-        // °ÔÀÓ ¾À ÀüÈ¯ ¶Ç´Â °ÔÀÓ ½ÃÀÛ ·ÎÁ÷
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!");
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 }

@@ -3,7 +3,8 @@
 public class Track : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float destroyZ = -10f;
+    
+    public float destroyZ = -15f;
 
     [SerializeField] public Transform[] obstaclePositions;
 
@@ -20,8 +21,9 @@ public class Track : MonoBehaviour
         TryGetComponent(out col);
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        if(InGameManager.I.State.Equals(GameState.PAUSE) || InGameManager.I.State.Equals(GameState.OVER)) return;
         transform.Translate(Vector3.back * moveSpeed * Time.fixedDeltaTime);
 
         headPoint = col.bounds.min.z;
