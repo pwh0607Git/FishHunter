@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544438668c354db4c8318c8e66e7b000, type: 3}
+  m_Name: Submarine
+  m_EditorClassIdentifier: 
+  type: 1
+  moveSpeed: 5
+  jumpForce: 3
+  laneMoveDuration: 0.2
+  attackRange: 10
+  model: {fileID: 4710270563526185827, guid: 2332c3d7c9756e44793e69d7fd955758, type: 3}
+  lobbyModel: {fileID: 5718508430117444783, guid: 5cf5df4fb249da241bffa7f8c124654f, type: 3}

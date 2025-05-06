@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "215017574754",
+    "project_id": "fishhunter-e80a6",
+    "storage_bucket": "fishhunter-e80a6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215017574754:android:6f65a946430128d2b15c3b",
+        "android_client_info": {
+          "package_name": "com.MBC3.fishHunter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAY5wIqtBnyZXr39IYgFqOANctzSk9GTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
