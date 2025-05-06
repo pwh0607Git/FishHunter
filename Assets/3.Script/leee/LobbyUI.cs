@@ -1,11 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
+
 public class LobbyUI : MonoBehaviour
 {
     public TextMeshProUGUI nicknameText;
-    public GameObject[] characterPrefabs;
+    public CharacterProfile[] profiles;
+    
     public Transform previewSpot;
     private GameObject currentPreview;
     private int selectedIndex = 0;
@@ -13,7 +15,8 @@ public class LobbyUI : MonoBehaviour
     void Start()
     {
         nicknameText.text = "Nickname: " + PlayerData.Nickname;
-        ShowCharacter(0);  // 기본 첫 캐릭터 표시
+        CharacterSession.I.playerNickname = PlayerData.Nickname;
+        ShowCharacter(0);
     }
 
     public void SelectCharacter(int index)
@@ -23,23 +26,45 @@ public class LobbyUI : MonoBehaviour
     }
 
     void ShowCharacter(int index)
-{
-    if (currentPreview != null)
     {
-        Destroy(currentPreview);
+        if (currentPreview != null)
+        {
+            Destroy(currentPreview);
+        }
+        currentPreview = Instantiate(profiles[index].lobbyModel, previewSpot.position, Quaternion.Euler(0, 180, 0));
+        
+        CharacterSession.I.currentProfile = profiles[index];
+
+        currentPreview.transform.SetParent(previewSpot);
     }
-
-    
-
-    currentPreview = Instantiate(characterPrefabs[index], previewSpot.position, Quaternion.Euler(0, 180, 0));
-    currentPreview.transform.SetParent(previewSpot);
-
-    
-}
 
     public void OnStartGameClicked()
     {
         PlayerData.SelectedCharacterIndex = selectedIndex;
         SceneManager.LoadScene("InGame");
+    }
+    [SerializeField] GameObject rankPanel;
+    public Transform rankingContent;
+    public GameObject rankEntryPrefab; 
+
+
+    public void OnClickRankBtn(){
+        rankPanel.SetActive(true);
+
+        foreach (Transform child in rankingContent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        List<ScoreEntry> topScores = LocalScoreManager.GetSortedScoresDescending();
+        
+        Debug.Log(topScores.Count);
+
+        for(int i=0;i<topScores.Count; i++){
+            GameObject obj = Instantiate(rankEntryPrefab, rankingContent);
+            RankEntryUI entryUI = obj.GetComponent<RankEntryUI>();
+            entryUI.Setup(i, topScores[i].nickname, topScores[i].score);
+        }
+
     }
 }
