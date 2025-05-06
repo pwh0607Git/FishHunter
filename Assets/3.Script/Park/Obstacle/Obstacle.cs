@@ -38,4 +38,11 @@ public class Obstacle : MonoBehaviour
             OnDisableEvent?.Invoke(this.gameObject);
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag.Equals("MISSILE")){
+            OnDisableEvent?.Invoke(this.gameObject);
+        }
+    }
 }

@@ -1,30 +1,32 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using System;
 using System.Collections.Generic;
 
-public class TrackManager : MonoBehaviour
+public class TrackManager : BehaviourSingleton<TrackManager>
 {
+    protected override bool IsDontDestroy() => false;
+
     public float scrollSpeed = 5f;
-    public Transform cameraTransform;
 
     [SerializeField] GameObject trackPrefab;
     [SerializeField] public Transform spawnPosition;
-    public float spawnInterval = 1.5f;
+    public List<Transform> lanes;
 
-    public UnityAction<Vector3> OnDestroyTrack;
+    public UnityAction<Vector3, bool> OnDestroyTrack;
+    private UnityAction OnCreateTrack;               // 트랙이 생성되었을 때.
 
-    private Queue<Track> trackPool = new Queue<Track>();
-
+    private Queue<Track> trackPool = new ();
     public Track lastTrack;            
 
-    private int poolSize = 8;   //
+    [SerializeField] int startCount = 3;
+
+    private int poolSize = 8;
+    
 
     private void Start()
     {
-        OnDestroyTrack += ReuseTrack;
+        OnDestroyTrack += SpawnTrack;
 
-        // Ʈ�� ������Ʈ �̸� ����
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(trackPrefab, transform);
@@ -32,16 +34,19 @@ public class TrackManager : MonoBehaviour
             Track track = obj.GetComponent<Track>();
             trackPool.Enqueue(track);
         }
+        
+        StartGame();
+    }
 
-        // ���� Ʈ�� ��ġ
-        for (int i = 0; i < 4; i++)
+    void StartGame(){
+      for (int i = 0; i < startCount; i++)
         {
-            Vector3 position = spawnPosition.position + Vector3.back * 10f * i;
-            ReuseTrack(position);
+            Vector3 position = spawnPosition.position + Vector3.back * 20f * i;
+            SpawnTrack(position, true);
         }
     }
 
-    void ReuseTrack(Vector3 position) //Track ����
+    void SpawnTrack(Vector3 position, bool isStart)
     {
         if (trackPool.Count > 0)
         {
@@ -49,18 +54,26 @@ public class TrackManager : MonoBehaviour
             track.gameObject.SetActive(true);
             track.transform.position = position;
             track.moveSpeed = scrollSpeed;
-            lastTrack = track;
-        }
-        else
-        { 
 
+            lastTrack = track;
+
+            if(!isStart){
+                OnCreateTrack?.Invoke();
+            }
         }
     }
 
-    // Ʈ���� ���� �� �ٽ� Ǯ�� �ֱ�
     public void ReturnToPool(Track track)
     {
         track.gameObject.SetActive(false);
-        trackPool.Enqueue(track); //ť ���� �����͸� �߰��Ѵ�.
+        trackPool.Enqueue(track);
+    }
+
+    public void RegisterTrackEvent(UnityAction action){
+        OnCreateTrack += action;
+    }
+
+    public void UnregisterTrackEvent(UnityAction action){
+        OnCreateTrack -= action;
     }
 }
