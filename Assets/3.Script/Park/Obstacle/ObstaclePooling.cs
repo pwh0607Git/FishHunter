@@ -12,6 +12,7 @@ public class ObstaclePooling : ObjectPooling<ObstacleData>
     }
 
     public override void ReturnProps(GameObject prop){
+        Debug.Log("장애물 리턴");
         Obstacle data = prop.GetComponent<Obstacle>();
 
         if(!pool.ContainsKey(data.Data)) return;

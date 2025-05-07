@@ -25,7 +25,7 @@ public class PropertySpawner : MonoBehaviour
 
         Vector3 spawnPosition = currentTrack.obstaclePositions[Random.Range(0, currentTrack.obstaclePositions.Length)].position - Vector3.forward * 2;
         
-        prop.transform.position = spawnPosition;
+        prop.transform.position = spawnPosition + Vector3.up * 2f;
         prop.transform.SetParent(currentTrack.transform);    
     }
 }

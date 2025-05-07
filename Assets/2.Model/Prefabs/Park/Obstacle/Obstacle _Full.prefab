@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1765186850337174048}
   - component: {fileID: 4693435585562415807}
   - component: {fileID: -3821538279672136022}
-  m_Layer: 0
+  - component: {fileID: 4723642488871502842}
+  m_Layer: 6
   m_Name: Obstacle _Full
-  m_TagString: Untagged
+  m_TagString: OBSTACLE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,8 +86,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 8, z: 4}
-  m_Center: {x: 0, y: 4, z: 0}
+  m_Size: {x: 4, y: 14, z: 4}
+  m_Center: {x: 0, y: 7, z: 0}
 --- !u!114 &-3821538279672136022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +100,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e808a8419a9504992bb5268e99125c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 0}
   minScaleY: 0
   maxScaleY: 0
+--- !u!54 &4723642488871502842
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136657833604953050}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3791542262601875352
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2541626072817299535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +156,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.7, y: 1.3, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3694466180569413382}
@@ -143,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3694466180569413382}
   - component: {fileID: 8439603605321154679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +240,7 @@ GameObject:
   - component: {fileID: 8203467879790341444}
   - component: {fileID: 7769890471578566894}
   - component: {fileID: 3998897773864865229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +323,7 @@ GameObject:
   - component: {fileID: 5214905255306260967}
   - component: {fileID: 8315059152517806796}
   - component: {fileID: 4602118131460628954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +406,7 @@ GameObject:
   - component: {fileID: 1177577984083514260}
   - component: {fileID: 2291488274739098836}
   - component: {fileID: 5271394207813429764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +489,7 @@ GameObject:
   - component: {fileID: 8498178572171454855}
   - component: {fileID: 4236724997846538050}
   - component: {fileID: 882885096340148735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,7 +5,6 @@ public class State : MonoBehaviour
 {
     public int score;
     public int currentHealth = 3;
-    public int currentMissile;
 
     public UnityAction<int> OnChangedScore;
     public UnityAction<int> OnChangedHealth;
@@ -21,7 +20,6 @@ public class State : MonoBehaviour
     }
 
     public void MinusHealth(){
-        Debug.Log("healthtest");
         currentHealth--;
         OnChangedHealth?.Invoke(this.currentHealth);
         

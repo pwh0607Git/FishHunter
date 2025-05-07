@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1758246270250845285}
   - component: {fileID: 6287813670940555936}
   - component: {fileID: 7046357264604593181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 9069839703107632758}
   - component: {fileID: 8233727708243384630}
   - component: {fileID: 2643281832009648102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7622239333690671246}
   - component: {fileID: 8511863533171581056}
   - component: {fileID: 5425154000220278214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2316660071335307469}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 2, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6830960778453981924}
@@ -291,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4999341055849909145}
   - component: {fileID: 1429548604206114457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 136081516642974828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4999341055849909145}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 2040554332689154214}
   - component: {fileID: 458560118507351308}
   - component: {fileID: 6554958052783054895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,9 +478,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4140690841860155399}
   - component: {fileID: 5156631434939336525}
-  m_Layer: 0
+  - component: {fileID: 8813445469939010379}
+  m_Layer: 6
   m_Name: Obstacle_Single
-  m_TagString: Untagged
+  m_TagString: OBSTACLE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +517,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 0}
   minScaleY: 0.8
-  maxScaleY: 1.5
+  maxScaleY: 1.2
+--- !u!54 &8813445469939010379
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649822473124336649}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3870793324590476898
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +556,7 @@ GameObject:
   - component: {fileID: 2726370452211522565}
   - component: {fileID: 2228180064460576558}
   - component: {fileID: 5933230579103353912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +639,7 @@ GameObject:
   - component: {fileID: 7409083891300150523}
   - component: {fileID: 6629212743803861748}
   - component: {fileID: 8798344412576673900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +722,7 @@ GameObject:
   - component: {fileID: 6986273865905328053}
   - component: {fileID: 1793248875820444612}
   - component: {fileID: 4380001101901602688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +805,7 @@ GameObject:
   - component: {fileID: 466039038912797770}
   - component: {fileID: 5129074146589189769}
   - component: {fileID: 8660366755711862225}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +888,7 @@ GameObject:
   - component: {fileID: 6950671095312808729}
   - component: {fileID: 1183237257694949954}
   - component: {fileID: 46800205591482039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,7 +970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6830960778453981924}
   - component: {fileID: 1771723399738862997}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,9 +1043,9 @@ GameObject:
   - component: {fileID: 5220332456319076396}
   - component: {fileID: 5967552150785039042}
   - component: {fileID: 1460384825009273038}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_Bottom
-  m_TagString: Untagged
+  m_TagString: OBSTACLE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1088,12 +1116,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2.2, z: 3}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 5, y: 6, z: 3}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &7565628088832987928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,9 +1133,9 @@ GameObject:
   - component: {fileID: 1347110040456724013}
   - component: {fileID: 6214903815489031323}
   - component: {fileID: 501703758623987596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_Top
-  m_TagString: Untagged
+  m_TagString: OBSTACLE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1121,8 +1149,8 @@ Transform:
   m_GameObject: {fileID: 7565628088832987928}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 14, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 136081516642974828}
@@ -1178,7 +1206,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1195,7 +1223,7 @@ GameObject:
   - component: {fileID: 73162305875917485}
   - component: {fileID: 3270171966052809101}
   - component: {fileID: 3025563441905949099}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

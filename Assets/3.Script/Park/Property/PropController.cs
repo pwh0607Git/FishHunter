@@ -21,12 +21,8 @@ public class PropController : MonoBehaviour
     public float minY;
     public float maxY;
 
-    TrackManager trackManager;
-
     void Start()
     {
-        trackManager = FindAnyObjectByType<TrackManager>();
-        
         TryGetComponent(out animator);
         
         effects = EffectFactory.CreateEffects(Data);
@@ -50,7 +46,7 @@ public class PropController : MonoBehaviour
     }
 
     private void SetMinMaxXY(){
-        Track currentTrack = trackManager.lastTrack;
+        Track currentTrack = TrackManager.I.lastTrack;
 
         maxX = currentTrack.obstaclePositions.Max(p => p.localPosition.x);
         minX = currentTrack.obstaclePositions.Min(p => p.localPosition.x);
@@ -78,7 +74,7 @@ public class PropController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(!other.transform.tag.Equals("SHOOT")) return;
+        if(!other.transform.tag.Equals("HARPOON")) return;
         
         Death(other.transform.GetComponentInParent<PlayerEventListener>());
     }
@@ -102,7 +98,7 @@ public class PropController : MonoBehaviour
     }
 
     void CheckReturnPosition(){
-        if(transform.position.z <= 0.5f){
+        if(transform.position.z <= 5.5f){
             OnDisableEvent?.Invoke(this.gameObject);
         }
     }

@@ -49,7 +49,12 @@ public class LobbyUI : MonoBehaviour
 
 
     public void OnClickRankBtn(){
-        rankPanel.SetActive(true);
+        if(!rankPanel.activeSelf){
+            rankPanel.SetActive(true);
+        }else{
+            rankPanel.SetActive(false);
+            return;
+        }
 
         foreach (Transform child in rankingContent)
         {
@@ -63,7 +68,7 @@ public class LobbyUI : MonoBehaviour
         for(int i=0;i<topScores.Count; i++){
             GameObject obj = Instantiate(rankEntryPrefab, rankingContent);
             RankEntryUI entryUI = obj.GetComponent<RankEntryUI>();
-            entryUI.Setup(i, topScores[i].nickname, topScores[i].score);
+            entryUI.Setup(i+1, topScores[i].nickname, topScores[i].score);
         }
 
     }

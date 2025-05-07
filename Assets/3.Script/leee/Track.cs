@@ -26,9 +26,7 @@ public class Track : MonoBehaviour
         if(InGameManager.I.State.Equals(GameState.PAUSE) || InGameManager.I.State.Equals(GameState.OVER)) return;
         transform.Translate(Vector3.back * moveSpeed * Time.fixedDeltaTime);
 
-        headPoint = col.bounds.min.z;
-
-        if (headPoint <= destroyZ)
+        if (transform.position.z < destroyZ)
         {
             manager.ReturnToPool(this);
         }
